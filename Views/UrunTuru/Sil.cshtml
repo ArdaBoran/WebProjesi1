@@ -1,0 +1,39 @@
+﻿@model UrunTuru
+
+<form method="post">
+
+    <div class="border p-3 mt-5">
+
+        <div class="row pb-3">
+
+            <h2 class="text-primary"> Ürün Türü Sil</h2>
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label asp-for="Ad" class="p-0"></label>
+            <input asp-for="Ad" disabled class="form-control" />
+            
+
+
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary" style="width:300px"> Ürün Türü Sil</button>
+
+        <a asp-controller="UrunTuru" asp-action="Index" class="btn btn-lg btn-primary" style="width:300px">
+            Ürün Türlerine Geri Dön
+        </a>
+
+    </div>
+
+
+</form>
+
+
+
+
+
+
+

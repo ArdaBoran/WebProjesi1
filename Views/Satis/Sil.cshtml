@@ -1,0 +1,42 @@
+﻿@model Satis
+
+<form method="post">
+
+    <div class="border p-3 mt-5">
+
+        <div class="row pb-3">
+
+            <h2 class="text-primary"> Satış Kaydı Sil</h2>
+
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="MusteriId" class="p-0"></label>
+            <input asp-for="MusteriId" disabled class="form-control" />
+          
+        </div>
+        <div class="mb-3">
+
+            <label asp-for="UrunId" class="p-0"></label>
+            <Select asp-for="UrunId" disabled asp-items="ViewBag.UrunList " class="form-select"> </Select>
+
+
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary" style="width:300px"> Satış Kaydı Sil</button>
+
+        <a asp-controller="Satis" asp-action="Index" class="btn btn-lg btn-primary" style="width:300px">
+            Satış Listesine Geri Dön
+        </a>
+
+    </div>
+
+
+</form>
+
+
+
+
+
+
+

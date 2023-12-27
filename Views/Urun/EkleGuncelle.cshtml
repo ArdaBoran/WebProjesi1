@@ -1,0 +1,103 @@
+﻿ @model Urun
+
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="ResimUrl" hidden />
+
+    <div class="row" >
+        <div class="col-10">
+            <div class="border p-3 mt-5">
+
+                <div class="row pb-3">
+
+                    <h2 class="text-primary">@(Model == null ? "Urun Ekle" : "Urun Güncelle")</h2>
+
+                </div>
+
+
+                    <div class="mb-3">
+
+                        <label asp-for="UrunAdi" class="p-0"></label>
+                        <input asp-for="UrunAdi" class="form-control" />
+                        <span asp-validation-for="UrunAdi" class="text-danger"></span>
+
+
+                    </div>
+                    <div class="mb-3">
+
+                        <label asp-for="UrunTuruId" class="p-0"></label>
+                        <Select asp-for="UrunTuruId" asp-items="ViewBag.UrunTuruList" class="form-select"> </Select>
+
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label asp-for="Tanim" class="p-0"></label>
+                        <input asp-for="Tanim" class="form-control" />
+                        <span asp-validation-for="Tanim" class="text-danger"></span>
+
+
+                    </div>
+
+                   
+
+                    <div class="mb-3">
+
+                        <label asp-for="Fiyat" class="p-0"></label>
+                        <input asp-for="Fiyat" class="form-control" />
+                        <span asp-validation-for="Fiyat" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label asp-for="ResimUrl" class="p-0"></label>
+                        <input type="file" name="file" class="form-control" />
+
+                    </div>
+                <div class="mb-3">
+
+                    <label asp-for="Barkod" class="p-0"></label>
+                    <input asp-for="Barkod" class="form-control" />
+                    <span asp-validation-for="Barkod" class="text-danger"></span>
+
+
+                </div>
+
+                    @if (Model != null)
+                    {
+                        <button type="submit" class="btn btn-lg btn-primary" style="width:200px"> Ürün Güncelle</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-lg btn-primary" style="width:200px"> Ürün Ekle</button>
+                    }
+
+                    <a asp-controller="Urun" asp-action="Index" class="btn btn-lg btn-primary" style="width:300px">
+                        Ürünlere Geri Dön
+                    </a>
+
+                </div>
+
+            </div>
+
+        <div class="col-2">
+            @if (Model != null)
+            {
+                <img src="@Model.ResimUrl" width="100%" style="border-radius:7px; border:1px solid #bbb9b9" />
+            }
+           
+
+        </div>
+
+    </div>
+
+
+  
+
+
+</form>
+
+
+

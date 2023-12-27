@@ -1,0 +1,56 @@
+﻿@model Urun
+
+<form method="post">
+
+    <div class="border p-3 mt-5">
+
+        <div class="row pb-3">
+
+            <h2 class="text-primary"> Urun Sil</h2>
+
+        </div>
+
+
+        <div class="mb-3">
+
+            <label asp-for="UrunAdi" class="p-0"></label>
+            <input asp-for="UrunAdi" disabled class="form-control" />
+            
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="Tanim" class="p-0"></label>
+            <input asp-for="Tanim" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="Barkod" class="p-0"></label>
+            <input asp-for="Barkod" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="Fiyat" class="p-0"></label>
+            <input asp-for="Fiyat" disabled class="form-control" />
+
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary" style="width:300px"> Ürün Sil</button>
+
+        <a asp-controller="Urun" asp-action="Index" class="btn btn-lg btn-primary" style="width:300px">
+            Ürünlere Geri Dön
+        </a>
+
+    </div>
+
+
+</form>
+
+
+
+
+
+
+

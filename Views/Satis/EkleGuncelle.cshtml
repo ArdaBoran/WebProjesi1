@@ -1,0 +1,73 @@
+﻿@model Satis
+
+<form method="post" enctype="multipart/form-data">
+    
+
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-5">
+
+                <div class="row pb-3">
+
+                    <h2 class="text-primary">@(Model == null ? " Yeni Satış" : "Satış Güncelle")</h2>
+
+                </div>
+
+
+                    <div class="mb-3">
+
+                        <label asp-for="MusteriId" class="p-0"></label>
+                        <input asp-for="MusteriId" class="form-control" />
+                         <span asp-validation-for="MusteriId" class="text-danger"></span>
+
+
+                    </div>
+                    <div class="mb-3">
+
+                        <label asp-for="UrunId" class="p-0"></label>
+                        <Select asp-for="UrunId" asp-items="ViewBag.UrunList " class="form-select"> </Select>
+
+
+                    </div>
+
+
+                    @if (Model != null)
+                    {
+                        <button type="submit" class="btn btn-lg btn-primary" style="width:200px">Güncelle</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-lg btn-primary" style="width:200px">Yeni Satış</button>
+                    }
+
+                    <a asp-controller="Satis" asp-action="Index" class="btn btn-lg btn-primary" style="width:300px">
+                        Satışlara Geri Dön
+                    </a>
+
+              
+                </div>
+
+
+        </div>
+
+        <div class="col-2">
+            @if (Model != null)
+            {
+                <br/>
+                <br />
+                <img src="@Model.Urun.ResimUrl" width="100%" style="border-radius:7px; border:1px solid #bbb9b9" />
+            }
+
+
+        </div>
+
+    </div>
+
+
+  
+
+
+</form>
+
+
+
