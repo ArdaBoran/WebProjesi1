@@ -64,11 +64,15 @@
                     Ürün Türü
                 </th>
                 <th>
+                    Stok Adeti
+                </th>
+                <th>
                     
                 </th>
                 <th>
                    
                 </th>
+                
 
 
 
@@ -89,6 +93,7 @@
                     <td align="center" valign="middle">@Urun.Barkod</td>
                     <td align="center" valign="middle">@Urun.Fiyat</td>
                     <td align="center" valign="middle">@Urun.UrunTuru.Ad</td>
+                    <td align="center" valign="middle">@Urun.StokMiktari</td>
 
                     @if (User.IsInRole(UserRoles.Role_Admin))
                     {

@@ -22,7 +22,7 @@ namespace WebProjesi1.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
-        [Authorize(Roles = "Admin,Ogrenci")]
+        [Authorize(Roles = "Admin,Musteri")]
         public IActionResult Index(string ara)
         {
 

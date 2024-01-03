@@ -31,5 +31,9 @@ namespace WebProjesi1.Models
         [ValidateNever]
         public string ResimUrl { get; set; }
 
+        public int StokMiktari { get; set; }
+
+
+
     }
 }

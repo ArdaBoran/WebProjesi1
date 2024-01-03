@@ -19,6 +19,9 @@ namespace WebProjesi1.Models
         [ValidateNever]
         public Urun Urun { get; set; }
 
+        public int urunadedi { get; set; }
+
+
 
 
 

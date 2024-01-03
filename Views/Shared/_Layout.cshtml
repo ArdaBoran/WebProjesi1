@@ -37,11 +37,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Satis" asp-action="Index">Satış İşlemi</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" target="_blank" asp-area="" asp-controller="NobetciEczane" asp-action="Index">Nöbetci Eczane</a>
+                            </li>
                         }
                         @if (User.IsInRole(UserRoles.Role_Musteri))
                         {
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Urun" asp-action="Index">Ürün Listesi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" target="_blank" asp-area="" asp-controller="NobetciEczane" asp-action="Index">Nöbetci Eczane</a>
                             </li>
                         }
 

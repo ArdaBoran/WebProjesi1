@@ -61,35 +61,47 @@ namespace WebProjesi1.Controllers
         }
 
         [HttpPost]
-        public IActionResult EkleGuncelle(Satis Satis)
+        public IActionResult EkleGuncelle(Satis satis)
         {
-            //modelstate kaynaklı hatayı yakalamak icin kullanılıyor 
-           // var errors = ModelState.Values.SelectMany(x => x.Errors);   
-
-            if(ModelState.IsValid)  
+            if (ModelState.IsValid)
             {
                 string wwwRootPath = _webHostEnvironment.WebRootPath;
-                string UrunPath = Path.Combine(wwwRootPath, @"img");
+                string urunPath = Path.Combine(wwwRootPath, @"img");
 
-         
-                if (Satis.Id == 0)
+                if (satis.Id == 0)
                 {
-                    _SatisRepository.Ekle(Satis);
-                    TempData["basarili"] = "Yeni Satis Kaydı Başarıyla Oluşturuldu!";
+                    _SatisRepository.Ekle(satis);
+
+                    // Stoktan düşürme yapılışı dikkat
+                    var urun = _UrunRepository.Get(u => u.Id == satis.UrunId);
+                    if (urun != null && urun.StokMiktari >= satis.urunadedi)
+                    {
+                        urun.StokMiktari -= satis.urunadedi;
+                        _UrunRepository.Guncelle(urun);
+                        TempData["basarili"] = "Yeni Satış Kaydı Başarıyla Oluşturuldu!";
+                    }
+
                 }
                 else
                 {
-                    _SatisRepository.Guncelle(Satis);
-                    TempData["basarili"] = " Satis Kaydı Güncelleme Tamamlandı!";
-                }
-                
-                _SatisRepository.Kaydet();
-                
-                return RedirectToAction("Index", "Satis");
+                    _SatisRepository.Guncelle(satis);
 
+
+                    var urun = _UrunRepository.Get(u => u.Id == satis.UrunId);
+                    if (urun != null && urun.StokMiktari >= satis.urunadedi)
+                    {
+                        urun.StokMiktari -= satis.urunadedi;
+                        _UrunRepository.Guncelle(urun);
+                        TempData["basarili"] = " Satış Kaydı Güncelleme Tamamlandı!";
+                    }
+
+                }
+
+                _SatisRepository.Kaydet();
+
+                return RedirectToAction("Index", "Satis");
             }
             return View();
-           
         }
         /*
         public IActionResult Guncelle(int? id)
